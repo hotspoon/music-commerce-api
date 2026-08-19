@@ -1,2 +1,17 @@
-class Api::V1::ArtistsController < ApplicationController
+module Api
+  module V1
+    class ArtistsController < ApplicationController
+      def index
+        artists = Artist.all
+
+        render json: artists
+      end
+
+      def show
+        artist = Artist.find(params[:id])
+
+        render json: artist
+      end
+    end
+  end
 end
